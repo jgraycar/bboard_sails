@@ -4,7 +4,7 @@
     <tr>
       <th>ID#</th>
       <th>URL</th>
-      <th>Title</th>
+      <th>Groups</th>
       <th></th>
       <th></th>
       <th></th>
@@ -14,7 +14,7 @@
     <tr>
       <td><%= board.id %></td>
       <td><%= board.url %></td>
-      <td><%= board.title %></td>
+      <td><%= board.groups %></td>
       <td><a href="/board/show/<%= board.id %>">Show</a></td>
       <td><a href="/board/edit/<%= board.id %>">Edit</a></td>
       <td><form action="/board/destroy/<%= board.id %>" method="POST">

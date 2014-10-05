@@ -34,6 +34,11 @@ module.exports.routes = {
 
   '/': {
     view: 'partials/empty-board'
+  },
+
+  '/:id': {
+    controller: 'Board',
+    action: 'show'
   }
 
   /***************************************************************************
