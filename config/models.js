@@ -1,3 +1,6 @@
+/*jslint node:true */
+"use strict";
+
 /**
  * Default model configuration
  * (sails.config.models)

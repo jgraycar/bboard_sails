@@ -1,3 +1,6 @@
+/*jslint node:true */
+"use strict";
+
 /**
  * BoardController
  *
@@ -10,7 +13,7 @@ var fields = forms.fields;
 var sh = require('shorthash');
 
 module.exports = {
-  new: function(req, res) {
+  new: function (req, res) {
     res.locals.flash = _.clone(req.session.flash);
     var reg_form = forms.create({
       url: fields.string({required: true}),
@@ -22,7 +25,7 @@ module.exports = {
     req.session.flash = {};
   },
 
-  create: function(req, res, next) {
+  create: function (req, res, next) {
     var file = req.params['image'];
     var date = new Date();
     var hash = sh.unique(date.toString());
