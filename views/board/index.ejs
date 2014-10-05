@@ -1,0 +1,28 @@
+<h1>All Bboards</h1>
+<div class="boards">
+  <table>
+    <tr>
+      <th>ID#</th>
+      <th>URL</th>
+      <th>Title</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+
+    <% _.each(boards, function(board) { %>
+    <tr>
+      <td><%= board.id %></td>
+      <td><%= board.url %></td>
+      <td><%= board.title %></td>
+      <td><a href="/board/show/<%= board.id %>">Show</a></td>
+      <td><a href="/board/edit/<%= board.id %>">Edit</a></td>
+      <td><form action="/board/destroy/<%= board.id %>" method="POST">
+          <input type="hidden" name="_method" value="delete"/>
+          <input type="submit" value="Delete"/>
+          <input type="hidden" name="_csrf" value="<%= _csrf %>"/>
+      </form></td>
+    </tr>
+    <% }) %>
+  </table>
+</div>

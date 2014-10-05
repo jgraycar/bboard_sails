@@ -1,0 +1,8 @@
+<h1>Edit your Bboard</h1>
+
+<form action="/board/update/<%= board.id %>" method="POST">
+  <input type="text" value="<%= board.url %>" name="url"/>
+  <input type="text" value="<%= board.title %>" name="title"/>
+  <input type="submit" value="Update Bboard"/>
+  <input type="hidden" name="_csrf" value="<%= _csrf %>"/>
+</form>
