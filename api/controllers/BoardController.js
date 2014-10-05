@@ -97,5 +97,17 @@ module.exports = {
       });
       res.redirect('/board');
     });
+  },
+
+  subscribe: function(req, res) {
+    console.log("omg");
+    Board.find(function foundBoards(err, boards) {
+      if (err) return next(err);
+
+      Board.subscribe(req.socket);
+      Board.subscribe(req.socket, boards);
+
+      res.send(200);
+    });
   }
 };

@@ -25,8 +25,53 @@ module.exports.sockets = {
   *                                                                          *
   ***************************************************************************/
   onConnect: function (session, socket) {
+    socket.on('message', function messageReceived(message) {
+      console.log("New socket message received: " + message);
 
-    // By default, do nothing.
+      if (message.model === 'board') {
+        var boardId = message.id;
+        updateBoardInDom(boardId, message);
+      }
+    });
+
+    socket.get('/board/subscribe');
+
+    function updateBoardInDom(boardUrl, message) {
+      var page = document.location.pathname;
+      page = page.replace(/(\/)$/, '');
+      switch (page) {
+        case "/" + boardUrl:
+        if (message.verb === 'create') {
+          BoardPage.addGroup(boardUrl, message);
+        } else if (message.verb === 'update') {
+          BoardPage.updateGroup(boardUrl, message);
+        } else if (message.verb === 'destroy') {
+          BoardPage.destroyGroup(boardUrl, message);
+        }
+        break;
+      }
+    }
+
+    var BoardPage = {
+      addGroup: function(boardUrl, message) {
+        var obj = {
+          group: message.data,
+          _csrf: window.bboard.csrf || ''
+        };
+        // Add Group to the current view after last div element
+        $( 'div:last' ).after(
+          JST['assets/templates/addGroup.ejs']( obj )
+        );
+      },
+
+      updateGroup: function(boardUrl, message) {
+        
+      },
+
+      destroyGroup: function(boardUrl, message) {
+        $('div[data-id="' + message.data.id + '"]').remove(); 
+      }
+    }
 
   },
 

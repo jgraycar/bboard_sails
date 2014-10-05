@@ -35,6 +35,11 @@ module.exports = {
 
         return res.redirect('/group/new');
       }
+
+      Board.publishCreate(group.owner.url, {
+        id: group.id
+      });
+
       res.redirect('/group/show/' + group.id);
       req.session.flash = {};
     })
@@ -60,6 +65,11 @@ module.exports = {
       if (err) {
         return res.redirect('/group/edit/' + req.param('id'));
       }
+
+      Board.publishUpdate(group.owner.url, {
+        id: group.id
+      });
+
       res.redirect('/group/show/' + req.param('id'));
     });
   },
@@ -90,6 +100,11 @@ module.exports = {
       Group.destroy(req.param('id'), function groupDestroyed(err) {
         if (err) return next(err);
       });
+
+      Board.publishDestroy(group.owner.url, {
+        id: group.id
+      });
+
       res.redirect('/group');
     });
   }
