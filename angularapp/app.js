@@ -1,13 +1,20 @@
-var bboardApp = angular.module('bboardApp', [ngRoute]); // Defines an angular module
+/*****
 
-bboardApp.controller('BoardController',function($scope,$http,$log){
+Some cred and some explanation
+
+*****/
+"use strict";
+
+var bboardApp = angular.module('bboardApp', ['ngRoute']); // Defines an angular module
+
+bboardApp.controller('BoardController', function ($scope, $http, $log) {
   //$log is used for console log
   //$http is used to communicate with the server
   //$scope defines the scope of controller
-  $scope.boards=[];
+  $scope.boards = [];
   $http.get("http://localhost:3000/board/")
-    .success(function(data){
-      $scope.boards=data;
+    .success(function (data) {
+      $scope.boards = data;
       $log.info($scope.empList);
     });
 });
