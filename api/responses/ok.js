@@ -1,3 +1,6 @@
+/*jslint node:true */
+"use strict";
+
 /**
  * 200 (OK) Response
  *

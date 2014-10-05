@@ -1,3 +1,6 @@
+/*jslint node:true */
+"use strict";
+
 /**
  * Session Configuration
  * (sails.config.session)
@@ -21,7 +24,7 @@ module.exports.session = {
   * of your users, forcing them to log in again.                             *
   *                                                                          *
   ***************************************************************************/
-  secret: 'f1900e811b7102e70d810fa5f4067a0a',
+  secret: 'f1900e811b7102e70d810fa5f4067a0a'
 
 
   /***************************************************************************

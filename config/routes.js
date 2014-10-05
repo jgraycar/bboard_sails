@@ -1,3 +1,6 @@
+/*jslint node:true */
+"use strict";
+
 /**
  * Route Mappings
  * (sails.config.routes)

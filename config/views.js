@@ -1,3 +1,6 @@
+/*jslint node:true */
+"use strict";
+
 /**
  * View Engine Configuration
  * (sails.config.views)

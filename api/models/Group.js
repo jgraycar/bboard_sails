@@ -1,3 +1,6 @@
+/*jslint node:true */
+"use strict";
+
 /**
 * Group.js
 *

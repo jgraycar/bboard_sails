@@ -1,3 +1,6 @@
+/*jslint node:true */
+"use strict";
+
 /**
  * WebSocket Server Settings
  * (sails.config.sockets)
@@ -21,7 +24,7 @@ module.exports.sockets = {
   * automatically.                                                           *
   *                                                                          *
   ***************************************************************************/
-  onConnect: function(session, socket) {
+  onConnect: function (session, socket) {
 
     // By default, do nothing.
 
@@ -34,10 +37,10 @@ module.exports.sockets = {
   * disconnects                                                              *
   *                                                                          *
   ***************************************************************************/
-  onDisconnect: function(session, socket) {
+  onDisconnect: function (session, socket) {
 
     // By default: do nothing.
-  },
+  }
 
 
   /***************************************************************************
