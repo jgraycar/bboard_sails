@@ -6,6 +6,7 @@
   "keywords": [],
   "dependencies": {
     "ejs": "~0.8.4",
+    "formidable": "^1.0.15",
     "forms": "^1.0.0",
     "grunt": "0.4.2",
     "grunt-contrib-clean": "~0.5.0",

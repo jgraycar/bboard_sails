@@ -32,13 +32,16 @@
     <link rel="stylesheet" href="/styles/normalize.css">
     <link rel="stylesheet" href="/styles/foundation.min.css">
     <link rel="stylesheet" href="/styles/importer.css">
-    <link rel="stylesheet" href="/styles/normalize.css">
+    <link rel="stylesheet" href="/styles/misc.css">
+    <link rel="stylesheet" href="/styles/nav.css">
     <!--STYLES END-->
   </head>
 
   <body>
     <%- partial("navbar.ejs") %>
-    <%- body %>
+    <section class="main-section">
+      <%- body %>
+    </section>
 
 
 
@@ -98,6 +101,7 @@
     <script src="/js/dependencies/jquery.cookie.js"></script>
     <script src="/js/dependencies/modernizr.js"></script>
     <script src="/js/dependencies/placeholder.js"></script>
+    <script src="/js/dropzone.min.js"></script>
     <script src="/js/foundation/foundation.abide.js"></script>
     <script src="/js/foundation/foundation.accordion.js"></script>
     <script src="/js/foundation/foundation.alert.js"></script>

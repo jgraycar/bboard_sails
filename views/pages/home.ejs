@@ -3,7 +3,7 @@
     <form action="/board/new"
           class="dropzone"
           id="add-first-image">
-      <input type="submit" value="add image" />
+      <input type="hidden" name="_csrf" value="<%= _csrf %>"/>
 
     </form>
 
