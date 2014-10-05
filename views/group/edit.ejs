@@ -1,0 +1,8 @@
+<h1>Edit your Group</h1>
+
+<form action="/group/update/<%= group.id %>" method="POST">
+  <input type="text" value="<%= group.title %>" name="title"/>
+  <input type="text" value="<%= group.title %>" name="title"/>
+  <input type="submit" value="Update Group"/>
+  <input type="hidden" name="_csrf" value="<%= _csrf %>"/>
+</form>
