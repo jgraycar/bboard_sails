@@ -9,6 +9,11 @@ module.exports = {
 
   attributes: {
 
+    url: {
+      type: "string",
+      requried: "true"
+    }
+
   }
 };
 
