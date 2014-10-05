@@ -1,9 +1,10 @@
-<div class="wrap">
-  <div class="row">
-    <form action="/board/create" method="POST" class="dropzone" id="add-first-image" name="image">
-      <input type="hidden" name="_csrf" value="<%= _csrf %>"/>
-      <input type="hidden" name="url" value="randomText"/>
-      <input type="submit" value="Create Bboard"/>
-    </form>
-  </div>
+<div class="row">
+  <form action="/board/create" method="POST" class="dropzone large-4 columns" id="add-first-image" name="image">
+    <div class="add-image">
+      <img src="images/Plus.png" class="plus" />
+      <p>add an image</p>
+    </div>
+    <input type="hidden" name="_csrf" value="<%= _csrf %>"/>
+    <input type="hidden" name="url" value="randomText"/>
+  </form>
 </div>

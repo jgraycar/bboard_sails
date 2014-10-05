@@ -1,0 +1,23 @@
+.home-link {
+  margin: 0px;
+  margin-top: 15px;
+  margin-bottom: 40px;
+  list-style-type: none;
+}
+
+.home-link li {
+  display: inline-block;
+}
+
+.home-link h3 {
+
+}
+
+.home-link .logo {
+  max-height: 36px;
+  margin-top: -12px;
+}
+
+.home-link .name {
+  color: #444;
+}
