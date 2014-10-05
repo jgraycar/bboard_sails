@@ -1,0 +1,29 @@
+<h1>All Groups</h1>
+
+<div class="groups">
+  <table>
+    <tr>
+      <th>ID#</th>
+      <th>Board</th>
+      <th>Images</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+
+    <% _.each(groups, function(group) { %>
+    <tr>
+      <td><%= group.id %></td>
+      <td><%= group.owner.id %></td>
+      <td><%= group.images %></td>
+      <td><a href="/group/show/<%= group.id %>">Show</a></td>
+      <td><a href="/group/edit/<%= group.id %>">Edit</a></td>
+      <td><form action="/group/destroy/<%= group.id %>" method="POST">
+          <input type="hidden" name="_method" value="delete"/>
+          <input type="submit" value="Delete"/>
+          <input type="hidden" name="_csrf" value="<%= _csrf %>"/>
+      </form></td>
+    </tr>
+    <% }) %>
+  </table>
+</div>
