@@ -31,10 +31,33 @@ module.exports = {
 
         return res.redirect('/board/new');
       }
-      //res.json(board);
-      res.redirect('/board/show' + board.id);
+      res.redirect('/board/show/' + board.id);
       req.session.flash = {};
     })
+  },
+
+  edit: function(req, res, next) {
+    Board.findOne(req.param('id'), function foundBoard(err, board) {
+      if (err) return next(err);
+      if (!board) return next('Board doesn\'t exit yo');
+      var reg_form = forms.create({
+        url: fields.string({required: true}),
+        title: fields.string({required: true})
+      });
+      res.view({
+        form: reg_form,
+        board: board
+      });
+    });
+  },
+
+  update: function(req, res, next) {
+    Board.update(req.param('id'), req.params.all(), function boardUpdated(err) {
+      if (err) {
+        return res.redirect('/board/edit/' + req.param('id'));
+      }
+      res.redirect('/board/show/' + req.param('id'));
+    });
   },
 
   show: function(req, res, next) {
@@ -44,6 +67,26 @@ module.exports = {
       res.view({
         board: board
       });
+    });
+  },
+
+  index: function(req, res, next) {
+    Board.find(function foundBoards(err, boards) {
+      if (err) return next(err);
+      res.view({
+        boards: boards
+      });
+    });
+  },
+
+  destroy: function(req, res, next) {
+    Board.findOne(req.param('id'), function foundBoard(err, board) {
+      if (err) return next(err);
+      if (!board) return next('Board doesn\'t exist yo');
+      Board.destroy(req.param('id'), function boardDestroyed(err) {
+        if (err) return next(err);
+      });
+      res.redirect('/board');
     });
   }
 };
