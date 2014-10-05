@@ -1,4 +1,4 @@
-var bboardApp = angular.module('bboardApp', []); // Defines an angular module
+var bboardApp = angular.module('bboardApp', [ngRoute]); // Defines an angular module
 
 bboardApp.controller('BoardController',function($scope,$http,$log){
   //$log is used for console log
