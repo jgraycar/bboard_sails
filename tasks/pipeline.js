@@ -31,9 +31,12 @@ var jsFilesToInject = [
   // Important files to comee before the rest
   'js/dependencies/jquery.js',
   'js/dependencies/modernizer.js',
-  'js/foundation.min.js',
+  'js/dependencies/foundation.min.js',
 
-  // Dependencies like jQuery, or Angular are brought in here
+  // Add all the foundation files
+  'js/foundation/**/*.js',
+
+  // Dependencies are brought in here
   'js/dependencies/**/*.js',
 
   // All of the rest of your client-side js files
