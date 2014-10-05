@@ -36,7 +36,7 @@ module.exports = {
 
         return res.redirect('/board/new');
       }
-      res.redirect('/board/show/' + board.id);
+      res.redirect('/board/show/' + board.url);
       req.session.flash = {};
     })
   },
@@ -66,7 +66,8 @@ module.exports = {
   },
 
   show: function(req, res, next) {
-    Board.findOne(req.param('id'), function foundBoard(err, board) {
+    var url = req.param('id');
+    Board.findOne({ url: url }, function foundBoard(err, board) {
       if (err) return next(err);
       if (!board) return next();
       res.view({

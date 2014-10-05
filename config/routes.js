@@ -34,6 +34,11 @@ module.exports.routes = {
 
   '/': {
     view: 'pages/home'
+  },
+
+  '/:id': {
+    controller: 'Board',
+    action: 'show'
   }
 
   /***************************************************************************
