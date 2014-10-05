@@ -1,12 +1,9 @@
 <div class="wrap">
   <div class="row">
-    <form action="/board/new"
-          class="dropzone"
-          id="add-first-image">
+    <form action="/board/create" method="POST" class="dropzone" id="add-first-image" name="image">
       <input type="hidden" name="_csrf" value="<%= _csrf %>"/>
-
+      <input type="hidden" name="url" value="randomText"/>
+      <input type="submit" value="Create Bboard"/>
     </form>
-
-    <a href="/board/new" class="button">Create new bboard</a>
   </div>
 </div>

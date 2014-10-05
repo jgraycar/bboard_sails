@@ -7,6 +7,7 @@
 
 var forms = require('forms');
 var fields = forms.fields;
+var sh = require('shorthash');
 
 module.exports = {
   new: function(req, res) {
@@ -22,7 +23,11 @@ module.exports = {
   },
 
   create: function(req, res, next) {
-    Board.create(req.params.all(), function boardCreated(err, board) {
+    var file = req.params['image'];
+    var date = new Date();
+    var hash = sh.unique(date.toString());
+    var boardParams = {url: hash};
+    Board.create(boardParams, function boardCreated(err, board) {
       if (err) {
         console.log(err);
         req.session.flash = {
