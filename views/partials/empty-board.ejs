@@ -1,8 +1,8 @@
-<div class="row">
+<div class="row" ng-controller="imageUploader">
   <form action="/board/create" method="POST" class="uploader small-12 medium-6 large-4 columns" name="image-upload">
     <div class="upload-hint">
       <img src="images/Plus.png" class="plus" />
-      <p>add an image</p>
+      <p>add an image {{ hello }}</p>
     </div>
     <input type="hidden" name="_csrf" value="<%= _csrf %>"/>
     <input type="hidden" name="url" value="randomText"/>
